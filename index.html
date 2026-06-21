@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhik Lal Mukherjee — Startup Advisor, Bangalore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #0f172a;
+      --ink-mid:    #475569;
+      --ink-light:  #94a3b8;
+      --accent:     #1d4ed8;
+      --accent-hover: #1e40af;
+      --bg:         #ffffff;
+      --bg-soft:    #f8fafc;
+      --bg-rule:    #e2e8f0;
+      --max-w:      1080px;
+      --section-gap: 96px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--bg-rule);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 100px 24px 88px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.12;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .hero-tagline {
+      font-size: 18px;
+      color: var(--ink-mid);
+      margin-bottom: 36px;
+      max-width: 440px;
+      line-height: 1.65;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .stat-val {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--ink-mid);
+      margin-top: 4px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .hero-cta:hover { background: var(--accent-hover); }
+    .hero-visual {
+      background: var(--bg-soft);
+      border: 1px solid var(--bg-rule);
+      border-radius: 16px;
+      padding: 40px 36px;
+    }
+    .hero-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      line-height: 1.55;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .hero-quote::before { content: '\201C'; }
+    .hero-quote::after  { content: '\201D'; }
+    .hero-caption {
+      font-size: 13px;
+      color: var(--ink-light);
+    }
+
+    /* ── SECTION SHELL ── */
+    section {
+      padding: var(--section-gap) 0;
+    }
+    .section-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--ink);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--ink-mid);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+    .rule { width: 48px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 48px; }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-body {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+    }
+    .about-body p + p { margin-top: 20px; }
+    .about-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+    .pill {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+    .about-sidebar {
+      background: var(--bg-soft);
+      border: 1px solid var(--bg-rule);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .sidebar-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--bg-rule);
+    }
+    .sidebar-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-item:first-child { padding-top: 0; }
+    .sidebar-key {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 4px;
+    }
+    .sidebar-val {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ── SERVICES ── */
+    .services-bg { background: var(--bg-soft); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--bg);
+      border: 1px solid var(--bg-rule);
+      border-radius: 12px;
+      padding: 36px 32px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(29,78,216,0.07);
+      border-color: #bfdbfe;
+    }
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      background: #eff6ff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .service-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .service-desc {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .service-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .service-bullets li {
+      font-size: 14px;
+      color: var(--ink-mid);
+      padding-left: 20px;
+      position: relative;
+    }
+    .service-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    /* ── HOW I WORK ── */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      counter-reset: step;
+    }
+    .process-step {
+      counter-increment: step;
+    }
+    .step-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+    }
+    .step-num::before { content: '0' counter(step); }
+    .step-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .step-desc {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT ── */
+    .contact-bg { background: var(--ink); }
+    .contact-bg .section-label { color: #60a5fa; }
+    .contact-bg .section-heading { color: #f8fafc; }
+    .contact-bg .section-sub { color: #94a3b8; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 24px; }
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-item-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item-icon svg { width: 18px; height: 18px; stroke: #93c5fd; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-item-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+    .contact-item-value {
+      font-size: 15px;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .contact-item-value a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    .contact-item-value a:hover { text-decoration: underline; }
+
+    /* contact form */
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 15px;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #475569; }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #3b82f6;
+    }
+    .form-group select option { background: #0f172a; }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 14px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--accent-hover); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      background: var(--ink);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy { font-size: 13px; color: #475569; }
+    .footer-name { font-size: 13px; font-weight: 600; color: #64748b; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; padding: 64px 24px 56px; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      :root { --section-gap: 64px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Abhik Lal Mukherjee</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Approach</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Startup Advisor &middot; Bangalore</p>
+    <h1 class="hero-name">Abhik Lal<br/>Mukherjee</h1>
+    <p class="hero-tagline">I help ambitious tech startups crack their go-to-market and build products that retain customers &mdash; drawing on 20+ years of hands-on experience.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">20+</div>
+        <div class="stat-label">Years of experience</div>
+      </div>
+      <div>
+        <div class="stat-val">GTM</div>
+        <div class="stat-label">Strategy &amp; execution</div>
+      </div>
+      <div>
+        <div class="stat-val">PM</div>
+        <div class="stat-label">Product leadership</div>
+      </div>
+    </div>
+    <a href="#contact" class="hero-cta">Work with me</a>
+  </div>
+  <div class="hero-visual">
+    <p class="hero-quote">Strategy without execution is just a wish list. Execution without strategy is just noise.</p>
+    <p class="hero-caption">On what it takes to grow in the Bangalore startup ecosystem</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">About</p>
+    <h2 class="section-heading">Two decades building<br/>and advising startups</h2>
+    <div class="rule"></div>
+    <div class="about-grid">
+      <div>
+        <div class="about-body">
+          <p>I am a seasoned consultant based in Bangalore with over 20 years of experience in the Indian and global tech industry. I have worked with early-stage founders, growth-stage startups, and enterprise innovation teams &mdash; helping them think clearly about where to play and how to win.</p>
+          <p>My focus areas are <strong>Go-to-Market strategy</strong> and <strong>Product Management</strong>. I help startups move from idea to first revenue, sharpen their positioning, build the right distribution channels, and create product roadmaps that are grounded in customer problems rather than internal assumptions.</p>
+          <p>I bring both strategic clarity and operational depth. Whether you need to define your ICP, structure a sales motion, or fix a leaking funnel &mdash; I work alongside you until the problem is solved, not just documented.</p>
+        </div>
+        <div class="about-pills">
+          <span class="pill">Go-to-Market Strategy</span>
+          <span class="pill">Product Management</span>
+          <span class="pill">SaaS</span>
+          <span class="pill">B2B Startups</span>
+          <span class="pill">Positioning &amp; Messaging</span>
+          <span class="pill">Roadmap Design</span>
+          <span class="pill">Bangalore Tech Ecosystem</span>
+        </div>
+      </div>
+      <div class="about-sidebar">
+        <div class="sidebar-item">
+          <div class="sidebar-key">Location</div>
+          <div class="sidebar-val">Bangalore, India</div>
+        </div>
+        <div class="sidebar-item">
+          <div class="sidebar-key">Experience</div>
+          <div class="sidebar-val">20+ years in tech</div>
+        </div>
+        <div class="sidebar-item">
+          <div class="sidebar-key">Focus</div>
+          <div class="sidebar-val">Early &amp; growth-stage tech startups</div>
+        </div>
+        <div class="sidebar-item">
+          <div class="sidebar-key">Engagement models</div>
+          <div class="sidebar-val">Advisory retainer, project-based, fractional CPO / CMO</div>
+        </div>
+        <div class="sidebar-item">
+          <div class="sidebar-key">Works with</div>
+          <div class="sidebar-val">Founders, CPOs, CEOs, product &amp; marketing leads</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-bg">
+  <div class="section-inner">
+    <p class="section-label">What I do</p>
+    <h2 class="section-heading">Where I can help</h2>
+    <p class="section-sub">Two deep specialisations, applied together &mdash; because great products fail without distribution, and great GTM fails without a product worth selling.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 10h12v4H3zM3 17h8v4H3z"/></svg>
+        </div>
+        <h3 class="service-title">Go-to-Market Strategy</h3>
+        <p class="service-desc">Build a GTM motion that turns early traction into predictable, repeatable revenue. From ICP definition to channel strategy and sales playbooks.</p>
+        <ul class="service-bullets">
+          <li>Ideal Customer Profile (ICP) definition</li>
+          <li>Positioning &amp; competitive differentiation</li>
+          <li>Channel strategy (inbound, outbound, partnerships)</li>
+          <li>Pricing &amp; packaging design</li>
+          <li>Sales process &amp; enablement</li>
+          <li>Launch planning &amp; execution</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3 class="service-title">Product Management</h3>
+        <p class="service-desc">Build a product organisation and roadmap that solves real problems. I embed with your team to bring structure, prioritisation rigour, and customer-centric thinking.</p>
+        <ul class="service-bullets">
+          <li>Product discovery &amp; user research</li>
+          <li>Roadmap design &amp; prioritisation frameworks</li>
+          <li>Metrics &amp; OKR definition</li>
+          <li>Feature scoping &amp; PRD reviews</li>
+          <li>Cross-functional alignment</li>
+          <li>Fractional CPO engagements</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="service-title">Advisory &amp; Mentorship</h3>
+        <p class="service-desc">An ongoing thinking partner for founders and senior leaders navigating strategic inflection points &mdash; fundraising, pivots, new market entry, or scaling the team.</p>
+        <ul class="service-bullets">
+          <li>Investor narrative &amp; pitch coaching</li>
+          <li>Market entry strategy</li>
+          <li>Organisational design for product &amp; GTM teams</li>
+          <li>Monthly advisory retainer</li>
+          <li>Board-level advisory</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <p class="section-label">My approach</p>
+    <h2 class="section-heading">How I work</h2>
+    <p class="section-sub">Every engagement is different, but the underlying approach is consistent: understand the real problem first, then work backwards to the solution.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num"></div>
+        <div class="step-title">Diagnose</div>
+        <div class="step-desc">We start with a structured conversation about your business, your customers, and the gap between where you are and where you need to be. No assumptions, no templates.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num"></div>
+        <div class="step-title">Align</div>
+        <div class="step-desc">I synthesise findings into a clear point of view &mdash; what the actual problem is, what levers exist, and what the path forward looks like. We align before we act.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num"></div>
+        <div class="step-title">Execute</div>
+        <div class="step-desc">I work alongside your team in the execution phase &mdash; not just advising from the sidelines. Deliverables are concrete, timelines are respected.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num"></div>
+        <div class="step-title">Iterate</div>
+        <div class="step-desc">Markets change, customers surprise you. I stay engaged to review, refine, and course-correct as you learn &mdash; because strategy is a living thing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-bg">
+  <div class="section-inner">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-heading">Let's talk about<br/>your startup</h2>
+    <p class="section-sub">Whether you're trying to crack a market, fix a product, or just want a second opinion from someone who's been around the block &mdash; I'm easy to reach.</p>
+    <div class="contact-grid">
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value"><a href="mailto:4abhik@gmail.com">4abhik@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18a2 2 0 011.98-2.18H5a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 6.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Phone / WhatsApp</div>
+            <div class="contact-item-value">+91 99001 73976</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">LinkedIn</div>
+            <div class="contact-item-value"><a href="https://www.linkedin.com/in/abhiklalmukherjee/" target="_blank" rel="noopener">linkedin.com/in/abhiklalmukherjee</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-value">Bangalore, Karnataka, India</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" placeholder="Priya Sharma" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="priya@startup.in" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="company">Company / Startup</label>
+          <input type="text" id="company" placeholder="What are you building?" />
+        </div>
+        <div class="form-group">
+          <label for="topic">What do you need help with?</label>
+          <select id="topic">
+            <option value="" disabled selected>Select a topic</option>
+            <option>Go-to-Market Strategy</option>
+            <option>Product Management</option>
+            <option>Advisory / Mentorship</option>
+            <option>Fractional CPO / CMO</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell me more</label>
+          <textarea id="message" placeholder="Brief context on your situation and what you're hoping to achieve..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send message &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">&copy; 2026 Abhik Lal Mukherjee. All rights reserved.</span>
+    <span class="footer-name">Bangalore, India</span>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Message sent ✔';
+    btn.style.background = '#15803d';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send message →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
